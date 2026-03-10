@@ -9,10 +9,10 @@ namespace PersonalInfoManagement.Models.Data
     {
         public static void Initialize(ApplicationDbContext context)
         {
-            // Ensure DB is created
+            
             context.Database.EnsureCreated();
 
-            // Don't seed if table already has data
+           
             if (context.PersonalInfos.Any())
                 return;
 
@@ -34,12 +34,12 @@ namespace PersonalInfoManagement.Models.Data
                 {
                     FirstName = first,
                     LastName = last,
-                    Email = $"{first.ToLower()}.{last.ToLower()}{i}@mail.com", // unique email
-                    PhoneNumber = "017" + rnd.Next(10000000, 100000000), // 11-digit number
+                    Email = $"{first.ToLower()}.{last.ToLower()}{i}@mail.com",
+                    PhoneNumber = "017" + rnd.Next(10000000, 100000000), 
                     Gender = gender,
                     Address = city,
                     Nationality = "Bangladeshi",
-                    DateOfBirth = DateTime.Now.AddYears(-rnd.Next(18, 61)), // Age 18-60
+                    DateOfBirth = DateTime.Now.AddYears(-rnd.Next(18, 61)), 
                     CreatedDate = DateTime.Now
                 });
             }
